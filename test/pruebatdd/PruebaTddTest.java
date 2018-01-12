@@ -20,4 +20,11 @@ public class PruebaTddTest {
         assert evaluador.evalua("verdadero") == true;
     }
     
+    @Test
+    public void testFalse() {
+        EvaluadorVerdaderoFalso evaluador = new EvaluadorVerdaderoFalso();
+        assert evaluador.evalua("falso") == false;
+}
+
+    
 }
