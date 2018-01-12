@@ -6,7 +6,6 @@
 package pruebatdd;
 
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *
@@ -50,5 +49,12 @@ public class PruebaTddTest {
         assert evaluador.evalua("verdadero y verdadero");
     }
 
-    
+    @Test
+    public void testYConParentesis() {
+        EvaluadorVerdaderoFalso evaluador = new EvaluadorVerdaderoFalso();
+        assert evaluador.evalua("(verdadero ) y verdadero");
+        assert !evaluador.evalua("( falso ) y verdadero");
+        assert evaluador.evalua("(verdadero ) y ( verdadero )");
+        assert !evaluador.evalua("(verdadero ) y ( falso )");
+    }
 }
