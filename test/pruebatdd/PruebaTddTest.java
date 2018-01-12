@@ -10,8 +10,9 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Sercop-Admin
+ * @author Byron D
  */
+
 public class PruebaTddTest {
     
     @Test
@@ -24,7 +25,30 @@ public class PruebaTddTest {
     public void testFalse() {
         EvaluadorVerdaderoFalso evaluador = new EvaluadorVerdaderoFalso();
         assert evaluador.evalua("falso") == false;
-}
+    }
+    
+    @Test
+    public void testParentesis() {
+        EvaluadorVerdaderoFalso evaluador = new EvaluadorVerdaderoFalso();
+        assert evaluador.evalua("(verdadero)") == true;        
+        assert evaluador.evalua("(false)") == false;
+    }
+
+    @Test
+    public void testEspacios() {
+        EvaluadorVerdaderoFalso evaluador = new EvaluadorVerdaderoFalso();
+        assert evaluador.evalua(" verdadero  ");
+        assert !evaluador.evalua(" falso    ");
+        assert evaluador.evalua(" ( verdadero   )     ");
+        assert !evaluador.evalua(" ( falso   )     ");
+    }
+
+    @Test
+    public void testY(){
+        EvaluadorVerdaderoFalso evaluador = new EvaluadorVerdaderoFalso();
+        assert !evaluador.evalua("verdadero y falso");
+        assert evaluador.evalua("verdadero y verdadero");
+    }
 
     
 }
